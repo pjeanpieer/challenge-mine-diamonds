@@ -1,18 +1,18 @@
-# logica de programação
+# @param {String}
+# @puts {Integer}
 
-# 1 step definir o metodo
 def mine_diamonds(string)
-  # 2 step criar uma variavel vazia para almacenar o numero de diamantes
+  # create a variable at 0 to counter the mined diamonds
   counter_diamonds = 0
-  # 3 step deletar tudos os pontos / areias
+  # mine sands('.') the string
   string.delete!('.')
-  # 4 lopping while para iterar dentro da cadeia de texto
+  # create a loop to iterate with string
   while string.include?('<>')
-    # 5 almazenar na variavel vazia a quantidade de diamantes
+    # every time '<>' is found, the counter will increase by 1
     counter_diamonds += string.scan(/<>/).count
+    # replace diamonds to empty string to ensure that loop finds another '<>'
     string.gsub!('<>', '')
   end
-  # 6 print o numero total de diamantes com uma interpolacao
   puts "Output: #{counter_diamonds}"
   puts "You've mined #{counter_diamonds} diamonds"
 end
